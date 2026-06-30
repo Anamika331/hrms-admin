@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hrms_admin/core/services/storage_service.dart';
 
@@ -23,7 +24,7 @@ class AuthInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
-      print("Unauthorized");
+      debugPrint("Unauthorized");
     }
 
     handler.next(err);
